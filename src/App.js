@@ -48,12 +48,12 @@ function App({ addNewResult }) {
         <label htmlFor="imageURL">Image URL</label>
 
         <div>
-          // Send image URL from search box to Clarify.
+          {/* Send image URL from search box to Clarify */}
           <button onClick={() => classifyImage(searchText)}>
             Identify URL
           </button>
 
-          // Send image URL from Unsplash to Clarifai.
+          {/* Send image URL from Unsplash to Clarifai */}
           <button onClick={() => {
             axios.get(`https://api.unsplash.com/photos/random?query=${Math.random() < 0.7 ? 'hotdog' : 'food'}&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
               .then((result) => {
