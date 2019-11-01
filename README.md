@@ -1,12 +1,21 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Technologies used to build the app:
+## NOT HOTDOG APP
+
+## Technologies used:
 
 • React
 • Redux
-• Clarifai API
+• Clarifai API (to identify & classify the images)
+• Unsplash API (to get random photos)
+• Axios
 • SCSS
 
 ## How the app works:
 
-A user is able to input an image link into the search bar and return whether the image is a hotdog, or not a hotdog.
+• User pastes an image URL to identify whether the image is or is not a hotdog.
+• User selects the option to get a random photo, which would then be identified as a hotdog or not a hotdog.
+
+## Future features:
+
+• Add a file input, which would be uploaded to Cloudinary to get an image URL. This image URL would then be sent to Clarify to identify and classify the image.
