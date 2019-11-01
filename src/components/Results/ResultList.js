@@ -1,6 +1,4 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { IS_HOTDOG_MESSAGE, NOT_HOTDOG_MESSAGE } from "../../constants";
 import "./style.scss";
 
 function ResultList({ results, isHotdog }) {
@@ -14,7 +12,7 @@ function ResultList({ results, isHotdog }) {
     <ul>
       {results.map((imageURL) =>
         <li key={imageURL}>
-          <img height="80" src={imageURL} />
+          <img alt="result" height="80" src={imageURL} />
         </li>
       )}
     </ul>
