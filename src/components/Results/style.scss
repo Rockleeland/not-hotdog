@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.resultLabel {
+  margin: 0;
+  text-align: left;
+  margin-left: 2rem;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 0 !important;
+}
+
+li {
+  margin: 5px;
+
+  & img {
+    border-radius: 10px;
+    margin-bottom: 5px;
+  }
+}
+
+.hotdog {
+  background: darken($background-color, 5%);
+}
+
+.notHotdog {
+  background: lighten($background-color, 2%);
+}

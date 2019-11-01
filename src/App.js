@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Clarifai from 'clarifai';
+import axios from "axios";
 import './App.scss';
-import ResultList from "./ResultList";
+import Results from "./components/Results";
 import { addNewResult } from "./redux/actions";
 import { IS_HOTDOG_MESSAGE, NOT_HOTDOG_MESSAGE } from "./constants";
 
@@ -14,37 +15,53 @@ function App({ addNewResult }) {
   const [searchText, setSearchText] = useState("");
   const [resultText, setResultText] = useState("");
 
+  const classifyImage = (imageURL) => {
+    app.models.predict(Clarifai.GENERAL_MODEL, imageURL)
+      .then(response => {
+        const isHotdog = response.outputs[0].data.concepts.find((concept) => concept.name === "hotdog");
+        setResultText(isHotdog ? IS_HOTDOG_MESSAGE: NOT_HOTDOG_MESSAGE);
+        addNewResult({
+          imageURL,
+          isHotdog
+        });
+        setSearchText("");
+      })
+      .catch(console.error);
+    }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/images/hotdog.png" className="App-logo" alt="logo" />
-        <p>
-          Not Hotdog App
-        </p>
-        <form onSubmit={(e) => {
-          e.preventDefault();
-          app.models.predict(Clarifai.GENERAL_MODEL, searchText)
-            .then(response => {
-              const isHotdog = response.outputs[0].data.concepts.find((concept) => concept.name === "hotdog");
-              setResultText(isHotdog ? IS_HOTDOG_MESSAGE: NOT_HOTDOG_MESSAGE);
-              addNewResult({
-                imageURL: searchText,
-                isHotdog
-              });
-              setSearchText("");
-              console.log(response);
-            })
-            .catch(err => {
-              console.log(err);
-            });
-          }}>
-          <label htmlFor="imageURL">Image URL <input type="text" name="imageURL" value={searchText} onChange={(event) => setSearchText(event.target.value)} /></label>
-          <input type="submit" value="Identify" />
-      </form>
-      <p>{resultText}</p>
-      </header>
+      <nav>
+        <img src="/images/not-hotdog-logo-black.png" className="App-logo" alt="logo" />
+      </nav>
+      <h1>Not Hotdog</h1>
+      <p>Hotdog or not hotdog, paste image URL here to find out.</p>
 
-      <ResultList />
+      <div className="form">
+        <input type="text" name="imageURL" value={searchText} onChange={(event) => setSearchText(event.target.value.trim())} />
+        <label htmlFor="imageURL">Image URL</label>
+
+        <div>
+          <button onClick={() => classifyImage(searchText)}>
+            Identify URL
+          </button>
+
+          <button onClick={() => {
+            axios.get(`https://api.unsplash.com/photos/random?query=${Math.random() < 0.7 ? 'hotdog' : 'food'}&client_id=${process.env.REACT_APP_UNSPLASH_API_KEY}`)
+              .then((result) => {
+                classifyImage(result.data.urls.small);
+              })
+            }}
+          >
+            Get Random Photo
+          </button>
+        </div>
+
+      </div>
+
+      <p className="resultText">{resultText}</p>
+
+      <Results />
 
     </div>
   );

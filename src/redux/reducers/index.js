@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
-import allResults from "./allResults";
+import results from "./results";
 
-export default combineReducers({ allResults });
+export default combineReducers({
+  results
+});
