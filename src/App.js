@@ -53,7 +53,7 @@ function App({ addNewResult }) {
               })
             }}
           >
-            Get Random Photo
+            Get Random Image
           </button>
         </div>
 
