@@ -23,11 +23,3 @@ li {
     margin-bottom: 5px;
   }
 }
-
-.notHotdog {
-  background: darken($background-color, 2%);
-}
-
-.hotdog {
-  background: lighten($background-color, 1%);
-}

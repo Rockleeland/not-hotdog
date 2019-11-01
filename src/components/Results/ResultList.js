@@ -7,7 +7,7 @@ function ResultList({ results, isHotdog }) {
     label = "";
   }
   return (
-    <section className={ isHotdog ? "hotdog" : "notHotdog" }>
+    <section>
     <p className="resultLabel">{label}</p>
     <ul>
       {results.map((imageURL) =>
@@ -16,7 +16,6 @@ function ResultList({ results, isHotdog }) {
         </li>
       )}
     </ul>
-
     </section>
   );
 }
