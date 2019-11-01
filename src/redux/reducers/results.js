@@ -1,3 +1,5 @@
+// Results reducer
+
 import { ADD_NEW_RESULT } from "../actionTypes";
 
 const initialState = {

@@ -1,6 +1,9 @@
+// Presentational component that displays a group of results
+
 import React from "react";
 import "./style.scss";
 
+// Receives results from the Results container component
 function ResultList({ results, isHotdog }) {
   let label = isHotdog ? "🌭" : "🚫";
   if (results.length === 0) {

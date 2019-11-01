@@ -1,3 +1,5 @@
+// Action creator
+
 import { ADD_NEW_RESULT } from "./actionTypes";
 
 export const addNewResult = (result) => ({
