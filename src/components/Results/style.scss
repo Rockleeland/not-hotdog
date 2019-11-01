@@ -24,10 +24,10 @@ li {
   }
 }
 
-.hotdog {
-  background: darken($background-color, 5%);
+.notHotdog {
+  background: darken($background-color, 2%);
 }
 
-.notHotdog {
-  background: lighten($background-color, 2%);
+.hotdog {
+  background: lighten($background-color, 1%);
 }

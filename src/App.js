@@ -32,10 +32,10 @@ function App({ addNewResult }) {
   return (
     <div className="App">
       <nav>
-        <img src="/images/not-hotdog-logo-black.png" className="App-logo" alt="logo" />
+        <img src="/images/not-hotdog-logo-tangerine.png" className="App-logo" alt="logo" />
       </nav>
-      <h1>Not Hotdog</h1>
-      <p>Hotdog or not hotdog, paste image URL here to find out.</p>
+      <h1>NOT HOTDOG</h1>
+      <p className="header">Hotdog or Not Hotdog, paste an image URL here to find out:</p>
 
       <div className="form">
         <input type="text" name="imageURL" value={searchText} onChange={(event) => setSearchText(event.target.value.trim())} />

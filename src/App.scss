@@ -10,13 +10,20 @@
 
 .resultText {
   font-size: 1.2rem;
-  font-family: 'Sriracha', cursive;
+  font-family: 'Arimo', sans-serif;
   padding-top: 10px;
+  letter-spacing: 1px;
 }
 
 h1 {
   color: $accent-color;
-  font-family: 'Sriracha', cursive;
+  font-family: 'Bowlby One SC', cursive;
+  letter-spacing: 5px;
+}
+
+.header {
+  color: darken($primary-color, 20%);
+  letter-spacing: 1px;
 }
 
 .form {
@@ -34,10 +41,15 @@ h1 {
     color: white;
     margin: 5px;
     font-size: 15px;
+    letter-spacing: 1px;
 
     &:hover {
       background: darken($accent-color, 5%);
       border: 2px solid darken($accent-color, 20%);
+    }
+
+    &:focus {
+      outline: 2px solid darken($light-blue, 30%);
     }
   }
 }
@@ -49,21 +61,7 @@ label {
   padding: 10px;
   font-size: 0.8rem;
   margin-bottom: 0  !important;
-}
-
-[type="submit"] {
-  background: $accent-color;
-  color: white;
-  margin: 0 auto;
-  border: none;
-  padding: 3.5px 20px;
-  border-radius: 5px;
-  margin: 15px;
-  font-family: 'Montserrat', sans-serif;
-
-  &:hover {
-    background: darken($accent-color, 5%);
-  }
+  letter-spacing: .7px;
 }
 
 nav {
@@ -72,7 +70,7 @@ nav {
 }
 
 .App-logo {
-  height: 100px;
+  height: 90px;
   border-radius: 2px;
 
 }
@@ -84,5 +82,9 @@ nav {
   background: transparent;
   padding: 5px 10px;
   max-width: 1200px;
-  outline: white;
+  outline: $primary-color;
+
+  @media(max-width: 411px) {
+    width: 95vw;
+  }
 }
